@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parquímetro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="headline">
+    <h2>Parquímetro Online</h2>
+    <p>Bem-vindo ao Parquímetro Online! Abaixo, digite o valor para determinar o seu tempo de estacionamento:</p>
+    <input type="number" id="valor" placeholder="Digite o valor em reais" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();">
+    <button id="calcularTroco" onclick="caixa.calcularTroco()">Calcular</button>
+    </div>
+    
+    <div class="options">
+        <div class="option">
+    <h3>Estacionar por 30 minutos</h3>
+    <p>por R$ 1,00</p>
+    <p style="color: green" id="troco30"></p>
+    <button onclick="caixa.iniciarTempo(this)" id="botao30">Escolher esta opção!</button>
+    </div>
+
+    <div class="option">
+    <h3>Estacionar por 1 hora</h3>
+    <p>por R$ 1,75</p>
+    <p style="color: green" id="troco1"></p> 
+    <button onclick="caixa.iniciarTempo(this)" id="botao1">Escolher esta opção!</button>
+    </div>
+
+    <div class="option">
+    <h3>Estacionar por 2 horas</h3>
+    <p>por R$2,00</p>
+    <p style="color: green" id="troco2"></p>
+    <button onclick="caixa.iniciarTempo(this)" id="botao2">Escolher esta opção!</button>
+    </div>
+
+    </div>
+
+    <h1 id="tempoRestante">00:00:00</h1>
+    <p class="mensagem">(tempo restante)</p>
+
+    <div id="popupOverlay" class="overlay">
+        <div class="popup">
+            <h2>Tempo de estacionamento esgotado!</h2>
+            <p>O tempo de estacionamento acabou. Por favor, renove o pagamento para continuar estacionando.</p>
+            <button onclick="caixa.fecharPopup()">Ok</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+    <footer>
+        <div style="text-align: center; color: white;">
+            <p>&copy; 2026 Parquímetro Online. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</html>
